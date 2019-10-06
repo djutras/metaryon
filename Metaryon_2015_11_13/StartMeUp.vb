@@ -10,12 +10,17 @@ Imports System.Management
 Imports System.Threading
 Imports System.Threading.ThreadPriority
 
+
 Module StartMeUp
+
 
     Public b_p_showS As Boolean = False
     Public i_p_lenghtMinimumFile As Int32 = 25000
 
     Sub Main()
+
+
+
 
         Dim sSource As String = "AP_DENIS"
         Dim sLog As String = "Applo"
@@ -32,9 +37,20 @@ Module StartMeUp
 
             Console.WriteLine("story.news.yahoo.com --> " & YourIP.ToString)
 
+            Dim Form As New Form1
+
+            Form.TextBox1.Text = "build 1.18.11.03"
+
+            Form.Show()
+
+
+
             Console.WriteLine("build 1.18.11.03")
             Console.WriteLine(vbNewLine)
             Console.WriteLine(System.Environment.MachineName())
+
+            Form.Show()
+
 
             'System.Threading.Thread.Sleep(2000)
 
@@ -147,3 +163,6 @@ Module StartMeUp
     End Sub
 
 End Module
+
+Friend Class FormsName
+End Class
