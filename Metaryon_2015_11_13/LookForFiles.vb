@@ -1239,6 +1239,30 @@ Public Module LookForFiles
 
                     Form.UPDATEURLTB3.Update()
                     Form.FreshPageTB5.Update()
+
+                    Form.TBScratchPad.Text = ""
+                    Form.INSERTURLFOUNDTB4.Text = ""
+                    Form.TB40004.Text = ""
+                    'Form.UPDATEURLTB3.Text = ""
+                    Form.RichTextBox1.Text = ""
+                    Form.TBLenghtPage.Text = ""
+                    Form.TBKeywords.Text = ""
+                    Form.TBSignature.Text = ""
+                    Form.FreshPageTB6.Text = ""
+                    Form.TextBox40004.Text = ""
+                    Form.FreshPageTB5.Text = ""
+                    Form.TBScratchPad.Update()
+                    Form.INSERTURLFOUNDTB4.Update()
+                    Form.TB40004.Update()
+                    'Form.UPDATEURLTB3.Update()
+                    Form.RichTextBox1.Update()
+                    Form.TBLenghtPage.Update()
+                    Form.TBKeywords.Update()
+                    Form.TBSignature.Update()
+                    Form.FreshPageTB6.Update()
+                    Form.TextBox40004.Update()
+                    Form.FreshPageTB5.Update()
+
                     Form.Refresh()
 
                     Dim s_archive As String = "ar"
@@ -1262,6 +1286,29 @@ Public Module LookForFiles
                     Form.RichTextBox1.Update()
                     Form.TBSignature.Update()
                     Form.TBKeywords.Update()
+
+                    Form.TBScratchPad.Text = ""
+                    'Form.INSERTURLFOUNDTB4.Text = ""
+                    Form.TB40004.Text = ""
+                    Form.UPDATEURLTB3.Text = ""
+                    'Form.RichTextBox1.Text = ""
+                    Form.TBLenghtPage.Text = ""
+                    'Form.TBKeywords.Text = ""
+                    'Form.TBSignature.Text = ""
+                    'Form.FreshPageTB6.Text = ""
+                    Form.TextBox40004.Text = ""
+                    Form.FreshPageTB5.Text = ""
+                    Form.TBScratchPad.Update()
+                    'Form.INSERTURLFOUNDTB4.Update()
+                    Form.TB40004.Update()
+                    Form.UPDATEURLTB3.Update()
+                    'Form.RichTextBox1.Update()
+                    Form.TBLenghtPage.Update()
+                    'Form.TBKeywords.Update()
+                    'Form.TBSignature.Update()
+                    ''Form.FreshPageTB6.Update()
+                    Form.TextBox40004.Update()
+                    Form.FreshPageTB5.Update()
 
                     Form.Refresh()
 
@@ -2389,9 +2436,43 @@ Public Module LookForFiles
 
         End Try
 
-        If s_KeepString <> "stop" Then
 
-            Try
+
+        Try
+
+            If s_KeepString <> "stop" Then
+
+                Form.TBScratchPad.Text = s_KeepString.ToString
+                Form.TBScratchPad.Update()
+
+                'Form.TBScratchPad.Text = ""
+                Form.INSERTURLFOUNDTB4.Text = ""
+                Form.TB40004.Text = ""
+                Form.UPDATEURLTB3.Text = ""
+                Form.RichTextBox1.Text = ""
+                Form.TBLenghtPage.Text = ""
+                Form.TBKeywords.Text = ""
+                Form.TBSignature.Text = ""
+                Form.FreshPageTB6.Text = ""
+                Form.TextBox40004.Text = ""
+                Form.FreshPageTB5.Text = ""
+                Form.TBScratchPad.Update()
+                Form.INSERTURLFOUNDTB4.Update()
+                Form.TB40004.Update()
+                Form.UPDATEURLTB3.Update()
+                Form.RichTextBox1.Update()
+                Form.TBLenghtPage.Update()
+                Form.TBKeywords.Update()
+                Form.TBSignature.Update()
+                Form.FreshPageTB6.Update()
+                Form.TextBox40004.Update()
+                Form.FreshPageTB5.Update()
+
+
+                Form.Refresh()
+
+
+
                 Dim frq, counter1, counter2 As Long
                 Dim duration As Double
 
@@ -2411,15 +2492,52 @@ Public Module LookForFiles
                 QueryPerformanceCounter(counter2)
                 duration = (counter2 - counter1) / frq
 
-            Catch e_LookForFiles_1740 As Exception
+            Else
 
-                EventLog.WriteEntry(sSource, " lookforfiles.e_LookForFiles_1740 --> " & e_LookForFiles_1740.Message, EventLogEntryType.Information, 44)
+                Form.TBScratchPad.Text = s_KeepString.ToString
+                Form.TBScratchPad.Update()
+                Form.Refresh()
 
-            End Try
+            End If
 
-        End If
+        Catch e_LookForFiles_1740 As Exception
+
+            EventLog.WriteEntry(sSource, " lookforfiles.e_LookForFiles_1740 --> " & e_LookForFiles_1740.Message, EventLogEntryType.Information, 44)
+
+        End Try
+
 
     End Function
+
+    Sub UpdateFrom()
+
+        Form.TBScratchPad.Text = ""
+        Form.INSERTURLFOUNDTB4.Text = ""
+        Form.TB40004.Text = ""
+        Form.UPDATEURLTB3.Text = ""
+        Form.RichTextBox1.Text = ""
+        Form.TBLenghtPage.Text = ""
+        Form.TBKeywords.Text = ""
+        Form.TBSignature.Text = ""
+        Form.FreshPageTB6.Text = ""
+        Form.TextBox40004.Text = ""
+        Form.FreshPageTB5.Text = ""
+        Form.TBScratchPad.Update()
+        Form.INSERTURLFOUNDTB4.Update()
+        Form.TB40004.Update()
+        Form.UPDATEURLTB3.Update()
+        Form.RichTextBox1.Update()
+        Form.TBLenghtPage.Update()
+        Form.TBKeywords.Update()
+        Form.TBSignature.Update()
+        Form.FreshPageTB6.Update()
+        Form.TextBox40004.Update()
+        Form.FreshPageTB5.Update()
+
+
+        Form.Refresh()
+
+    End Sub
 
 
     Public ReadOnly Property ir_Duration() As Double

@@ -122,6 +122,11 @@ Public Module Async
                 b_block_404 = True
             End If
 
+            Form.TBLenghtPage.Text = i_lenghtOfThePage.ToString
+            Form.TBLenghtPage.Update()
+
+            Form.Refresh()
+
             Console.WriteLine("Async.81 -- i_lenghtOfThePage -- " & i_lenghtOfThePage)
 
             If i_lenghtOfThePage >= (i_p_MinKPage * 1000) Then
@@ -173,6 +178,15 @@ Public Module Async
 
             If Len(s_URLSite) > 0 And Len(sDatabaseName) > 0 Then
 
+                Form.TB40004.Text = s_URLSite.ToString
+                Form.TextBox40004.Text = "-40004"
+                Form.TBLenghtPage.Text = i_lenghtOfThePage.ToString
+
+                Form.TB40004.Update()
+                Form.TextBox40004.Update()
+                Form.TBLenghtPage.Update()
+                Form.Refresh()
+
                 Dim s_Yes As String = "y"
 
                 Dim objConn As New OleDbConnection(ConnStringURLDNS(sDatabaseName))
@@ -213,7 +227,7 @@ Public Module Async
 
             If Len(s_URLSite) > 0 And Len(sDatabaseName) > 0 Then
 
-                Form.TB40004.Text = sDatabaseName.ToString
+                Form.TB40004.Text = s_URLSite.ToString
                 Form.TextBox40004.Text = "-40004"
 
                 Form.TB40004.Update()
