@@ -20,30 +20,35 @@ Module Module2
     Public i_countFindSeed, i_countTimeFindSeeds As Int32
 
     Public Sub FindSeeds1()
-        If StartMeUp.b_p_showS = True Then
-            Console.WriteLine("SeedCrawler.23 -- DateTime.Now.Day  " & DateTime.Now.Day)
-        End If
-        'If i_countTimeFindSeeds = 0 Then
-        Call FindSeeds()
-        'End If
 
-        If i_countTimeFindSeeds = 0 And i_countFindSeed = 0 And s_p_authority = "yes" Then
-            Console.WriteLine("SeedCrawler.26 -- DateTime.Now.Day  " & DateTime.Now.Day)
-            Call UpdateSubQueryToDo()
-            Call FindSeeds()
-        End If
+        If Form.CheckSeed2.Checked = True Then
 
-        'To change in production
-
-        If (i_countFindSeed = 1 Or i_countFindSeed > 10) And s_p_authority = "yes" Then
             If StartMeUp.b_p_showS = True Then
-                Console.WriteLine("SeedCrawler.34 -- DateTime.Now.Day  " & DateTime.Now.Day)
+                Console.WriteLine("SeedCrawler.23 -- DateTime.Now.Day  " & DateTime.Now.Day)
             End If
-            Call UpdateSubQueryToDo()
+            'If i_countTimeFindSeeds = 0 Then
+            Call FindSeeds()
+            'End If
+
+            If i_countTimeFindSeeds = 0 And i_countFindSeed = 0 And s_p_authority = "yes" Then
+                Console.WriteLine("SeedCrawler.26 -- DateTime.Now.Day  " & DateTime.Now.Day)
+                Call UpdateSubQueryToDo()
+                Call FindSeeds()
+            End If
+
+            'To change in production
+
+            If (i_countFindSeed = 1 Or i_countFindSeed > 10) And s_p_authority = "yes" Then
+                If StartMeUp.b_p_showS = True Then
+                    Console.WriteLine("SeedCrawler.34 -- DateTime.Now.Day  " & DateTime.Now.Day)
+                End If
+                Call UpdateSubQueryToDo()
                 Call FindSeeds()
                 i_countFindSeed = 2
             Else
                 i_countFindSeed = i_countFindSeed + 1
+            End If
+
         End If
 
         'Dim NewSearch As New Search
@@ -68,81 +73,85 @@ Module Module2
 
     Public Sub FindSeeds()
         Try
-            Dim s_SearchToolName As String
-            Dim b_continue As Boolean = True
 
-            Do While b_continue
+            If Form.CheckSeed2.Checked = True Then
 
-                If GetKeywordsDatabaseName() = "stop" Then
-                    Exit Do
-                End If
+                Dim s_SearchToolName As String
+                Dim b_continue As Boolean = True
 
-                If Len(s_p_datName) > 0 Then
+                Do While b_continue
 
-                    'Call Google(s_p_keywords, s_p_datName)
-                    's_SearchToolName = "Google"
+                    If GetKeywordsDatabaseName() = "stop" Then
+                        Exit Do
+                    End If
 
-                    'Call Sub_CheckURLInsertBySearchTools(s_SearchToolName, s_p_datName)
-                    'b_p_firstTime = True
+                    If Len(s_p_datName) > 0 Then
 
-                    'Call CheckSizeOfLog()
+                        'Call Google(s_p_keywords, s_p_datName)
+                        's_SearchToolName = "Google"
 
-                    Call MSN(s_p_keywords, s_p_datName)
-                    s_SearchToolName = "MSN"
+                        'Call Sub_CheckURLInsertBySearchTools(s_SearchToolName, s_p_datName)
+                        'b_p_firstTime = True
 
-                    Call Sub_CheckURLInsertBySearchTools(s_p_keywords, s_p_datName)
-                    b_p_firstTime = True
+                        'Call CheckSizeOfLog()
 
-                    '                    Call CheckSizeOfLog()
+                        Call MSN(s_p_keywords, s_p_datName)
+                        s_SearchToolName = "MSN"
 
-                    'Call HotbotInktomi(s_p_keywords, s_p_datName)
-                    's_SearchToolName = "HotbotInktomi"
+                        Call Sub_CheckURLInsertBySearchTools(s_p_keywords, s_p_datName)
+                        b_p_firstTime = True
 
-                    '                    Call Sub_CheckURLInsertBySearchTools(s_p_keywords, s_p_datName)
-                    '                    b_p_firstTime = True
+                        '                    Call CheckSizeOfLog()
 
-                    '                    Call CheckSizeOfLog()
+                        'Call HotbotInktomi(s_p_keywords, s_p_datName)
+                        's_SearchToolName = "HotbotInktomi"
 
-                    '                    Call HotbotTeoma(s_p_keywords, s_p_datName)
-                    '                    s_SearchToolName = "HotbotTeoma"
+                        '                    Call Sub_CheckURLInsertBySearchTools(s_p_keywords, s_p_datName)
+                        '                    b_p_firstTime = True
 
-                    '                    Call Sub_CheckURLInsertBySearchTools(s_p_keywords, s_p_datName)
-                    '                    b_p_firstTime = True
+                        '                    Call CheckSizeOfLog()
 
-                    '                    Call CheckSizeOfLog()
+                        '                    Call HotbotTeoma(s_p_keywords, s_p_datName)
+                        '                    s_SearchToolName = "HotbotTeoma"
 
-                    '                    Call Altavista(s_p_keywords, s_p_datName)
-                    '                    s_SearchToolName = "Altavista"
+                        '                    Call Sub_CheckURLInsertBySearchTools(s_p_keywords, s_p_datName)
+                        '                    b_p_firstTime = True
 
-                    '                    Call Sub_CheckURLInsertBySearchTools(s_p_keywords, s_p_datName)
-                    '                    b_p_firstTime = True
+                        '                    Call CheckSizeOfLog()
 
-                    '                    Call CheckSizeOfLog()
+                        '                    Call Altavista(s_p_keywords, s_p_datName)
+                        '                    s_SearchToolName = "Altavista"
 
-                    '                    Call LooksSmart(s_p_keywords, s_p_datName)
-                    '                    s_SearchToolName = "LooksSmart"
+                        '                    Call Sub_CheckURLInsertBySearchTools(s_p_keywords, s_p_datName)
+                        '                    b_p_firstTime = True
 
-                    '                    Call Sub_CheckURLInsertBySearchTools(s_p_keywords, s_p_datName)
-                    '                    b_p_firstTime = True
+                        '                    Call CheckSizeOfLog()
 
-                    '                    Call CheckSizeOfLog()
+                        '                    Call LooksSmart(s_p_keywords, s_p_datName)
+                        '                    s_SearchToolName = "LooksSmart"
 
-                    Call Sub_InsertQueryFoundByKeywords(s_SearchToolName, s_p_datName)
+                        '                    Call Sub_CheckURLInsertBySearchTools(s_p_keywords, s_p_datName)
+                        '                    b_p_firstTime = True
 
-                    Call RemoveKeywordsToLookFor(s_p_keywords, s_p_datName)
+                        '                    Call CheckSizeOfLog()
 
-                    Call RemoveSynonymsToLookFor(s_p_keywords, s_p_datName)
+                        Call Sub_InsertQueryFoundByKeywords(s_SearchToolName, s_p_datName)
 
-                    Call SendParametersAndCleanup()
+                        Call RemoveKeywordsToLookFor(s_p_keywords, s_p_datName)
 
-                Else
-                    '                    Console.WriteLine(" seedcrawlers.133 --> There is no database to access? s_p_datName --> " & s_p_datName)
-                    '                    System.Threading.Thread.Sleep(10000)
-                    '                    Exit Do
-                End If
+                        Call RemoveSynonymsToLookFor(s_p_keywords, s_p_datName)
 
-            Loop
+                        Call SendParametersAndCleanup()
 
+                    Else
+                        '                    Console.WriteLine(" seedcrawlers.133 --> There is no database to access? s_p_datName --> " & s_p_datName)
+                        '                    System.Threading.Thread.Sleep(10000)
+                        '                    Exit Do
+                    End If
+
+                Loop
+
+            End If
         Catch ex As Exception
 
             Dim sSource As String = "AP_DENIS"

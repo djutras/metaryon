@@ -845,6 +845,14 @@ Public Module LookForFiles
 
                     If Len(s_searchEngine) > 2 Then
 
+                        Form.TextBox2.Text = s_URLToInsert.ToString
+
+                        Form.TextBox2.Update()
+
+                        Form.Refresh()
+
+
+
                         Console.WriteLine(s_URLToInsert & " - " & s_searchEngine & " -- lookforfiles.insert.842 Page --> " & i_GooglePage)
 
                         If CheckRangeGoHere(s_URLToInsert) = True Then
@@ -1226,6 +1234,13 @@ Public Module LookForFiles
                     b_p_freshPages = False
                     b_p_dateFoundToday = False
 
+                    Form.UPDATEURLTB3.Text = sToInsert.ToString
+                    Form.FreshPageTB5.Text = s_freshPage.ToString
+
+                    Form.UPDATEURLTB3.Update()
+                    Form.FreshPageTB5.Update()
+                    Form.Refresh()
+
                     Dim s_archive As String = "ar"
 
                     Dim b_p_notfirstTime As Boolean = False
@@ -1235,6 +1250,21 @@ Public Module LookForFiles
                     myConnection.Open()
                     myCommand2.ExecuteNonQuery()
                     myCommand2.Connection.Close()
+
+                    Form.INSERTURLFOUNDTB4.Text = sToInsert.ToString
+                    Form.FreshPageTB6.Text = s_freshPage.ToString
+                    Form.RichTextBox1.Text = s_pageContent.ToString
+                    Form.TBSignature.Text = i_foundSignature.ToString
+                    Form.TBKeywords.Text = i_foundKeywords.ToString
+
+                    Form.INSERTURLFOUNDTB4.Update()
+                    Form.FreshPageTB6.Update()
+                    Form.RichTextBox1.Update()
+                    Form.TBSignature.Update()
+                    Form.TBKeywords.Update()
+
+                    Form.Refresh()
+
 
                     Dim s_shortURL As String = Func_CleanUrl(sToInsert)
                     Dim s_machineURL As String = "1"

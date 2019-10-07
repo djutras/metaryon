@@ -16,6 +16,7 @@ Module StartMeUp
 
     Public b_p_showS As Boolean = False
     Public i_p_lenghtMinimumFile As Int32 = 25000
+    Public Form As New Form1
 
     Sub Main()
 
@@ -37,19 +38,17 @@ Module StartMeUp
 
             Console.WriteLine("story.news.yahoo.com --> " & YourIP.ToString)
 
-            Dim Form As New Form1
+
 
             Form.TextBox1.Text = "build 1.18.11.03"
 
             Form.Show()
 
-
-
             Console.WriteLine("build 1.18.11.03")
             Console.WriteLine(vbNewLine)
             Console.WriteLine(System.Environment.MachineName())
 
-            Form.Show()
+
 
 
             'System.Threading.Thread.Sleep(2000)
@@ -62,7 +61,12 @@ Module StartMeUp
 
             'Call KillAndStartWatcher()
 
-            Call FindSeeds1()
+
+
+            If Form.CheckSeed2.Checked = True Then
+                Call FindSeeds1()
+            End If
+
 
             Call StartTheScanningProcessFromConfiguration()
 

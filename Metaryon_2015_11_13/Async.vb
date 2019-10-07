@@ -213,6 +213,14 @@ Public Module Async
 
             If Len(s_URLSite) > 0 And Len(sDatabaseName) > 0 Then
 
+                Form.TB40004.Text = sDatabaseName.ToString
+                Form.TextBox40004.Text = "-40004"
+
+                Form.TB40004.Update()
+                Form.TextBox40004.Update()
+                Form.Refresh()
+
+
                 Dim s_Yes As String = "y"
 
                 Dim objConn As New OleDbConnection(ConnStringURLDNS(sDatabaseName))
