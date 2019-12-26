@@ -40,9 +40,9 @@ Module StartMeUp
 
 
 
-            Form.TextBox1.Text = "build 1.18.11.03"
+            'Form.TextBox1.Text = "build 1.18.11.03"
 
-            Form.Show()
+            'Form.Show()
 
             Console.WriteLine("build 1.18.11.03")
             Console.WriteLine(vbNewLine)
@@ -61,12 +61,9 @@ Module StartMeUp
 
             'Call KillAndStartWatcher()
 
-
-
             If Form.CheckSeed2.Checked = True Then
                 Call FindSeeds1()
             End If
-
 
             Call StartTheScanningProcessFromConfiguration()
 
@@ -84,6 +81,35 @@ Module StartMeUp
 
         End Try
     End Sub
+
+    '-------------------------------------------------------------------------
+    '-------------------------------------------------------------------------
+
+    Public Sub fFindWhatToLookForFU()
+
+    End Sub
+
+    Public Sub StartScanningFU()
+
+    End Sub
+
+    Public Sub f_FindUrlToScanFU()
+
+    End Sub
+
+    Public Sub f_FetchRacineFU()
+
+    End Sub
+
+
+    '-------------------------------------------------------------------------
+    '-------------------------------------------------------------------------
+
+
+
+
+
+
 
     Dim b_p_notfirstTime As Boolean = False
 

@@ -19,6 +19,8 @@ Module Search_copie
 
     Public Sub fFindWhatToLookFor()
 
+        Call fFindWhatToLookForFU()
+
         Dim sSource As String = "AP_DENIS"
         Dim sLog As String = "Applo"
 
@@ -813,6 +815,8 @@ Module Search_copie
                     '' If CheckMachineNamePublished() Then
 
                     '''' If CheckMachineNamePublished() = True Then
+                    '''
+
 
                     Call fFindWhatToLookFor()
 
@@ -905,6 +909,8 @@ Module Search_copie
     Public s_p_keepStringWebsite As String
 
     Sub StartScanning(ByVal sToInsert As String)
+
+        Call StartScanningFU()
 
         Dim iDuration As Double
         Dim sQuery As String = sToInsert
@@ -1027,7 +1033,7 @@ Module Search_copie
 
                 For i = 0 To UBound(s_MyArray)
 
-                    Dim s_mySelectQuery As String = "SELECT * FROM DNSFOUND where iGoodSpot <> -40004 AND URLSite ='" & s_MyArray(i) & "' AND sCurrentQuery = '" & sToInsert & "'"
+                    Dim s_mySelectQuery As String = "SELECT * FROM DNSFOUND where iGoodSpot <> -40004 AND URLSite <> 'n/a' AND URLSite ='" & s_MyArray(i) & "' AND sCurrentQuery = '" & sToInsert & "'"
 
                     Dim myConnection22 As New OleDbConnection(ConnStringURLDNS(sQuery))
                     Dim myCommand As New OleDbCommand(s_mySelectQuery, myConnection22)
@@ -1049,13 +1055,13 @@ Module Search_copie
 
                     myConnection22.Close()
 
-                    If Not (Len(s_FoundURLSite)) > 0 Then
+                    If Not (Len(s_FoundURLSite)) > 5 Then
 
                         If Len(s_FoundURLSite) > 0 Then
 
                         Else
 
-                            If Len(s_MyArray(i)) > 0 Then
+                            If Len(s_MyArray(i)) > 5 Then
 
                                 Dim s_shortURL As String = Func_CleanUrl(s_MyArray(i))
 

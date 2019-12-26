@@ -36,6 +36,8 @@ Public Module LookForFiles
 
         Try
 
+            Call f_FindUrlToScanFU()
+
             Dim b_Continue As Boolean = True
             Dim b_DocumentInScratchpad As Boolean = True
             Dim b_Continue1 As Boolean = True
@@ -125,7 +127,7 @@ Public Module LookForFiles
                 If s_FileToCrawl <> "stop" And Len(s_FileToCrawl) > 0 Then
                     s_FileToCrawl = ReplaceAccent(s_FileToCrawl)
                     Call fGetUrlFromFileInsertInURLFOUND(s_FileToCrawl, s_DatabaseName, s_FoundRacine)
-                Else
+                Elseif s_FileToCrawl <> "stop"
                     RemovePointBecauseOf404(s_FoundRacine, s_DatabaseName)
                     Console.WriteLine("lookforfiles.s_FileToCrawl.109 -- is equal to stop or len os 0!   " & s_FoundRacine)
                 End If
@@ -2015,6 +2017,8 @@ Public Module LookForFiles
 
 
     Function f_FetchRacine(ByVal sDatabaseName, ByVal sURLToLookFor)
+
+        Call f_FetchRacineFU()
 
         Dim b_Continue As Boolean = True
         Dim b_Cont As Boolean = True
