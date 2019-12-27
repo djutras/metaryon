@@ -549,14 +549,14 @@ Public Module LookForFiles
                 Dim i_KeepScore As Integer = 50
                 Dim i_Myresult As Integer
 
-                ''Dim t As Thread
+                Dim t As Thread
 
-                ''t = New Thread(AddressOf f_GetHtmlFromURI)
-                ''t.Name = "GetHtml_Thread"
-                ''t.Priority = Normal
-                ''t.Start()
+                t = New Thread(AddressOf f_GetHtmlFromURI)
+                t.Name = "GetHtml_Thread"
+                t.Priority = Normal
+                t.Start()
 
-                'Call f_GetHtmlFromURI()
+                Call f_GetHtmlFromURI()
 
                 'If s_p_authority = "yes" Then
                 'i_TimeToJoin = 30000
@@ -564,17 +564,17 @@ Public Module LookForFiles
                 i_TimeToJoin = 15000
                 'End If
 
-                ''If t.Join(i_TimeToJoin) Then
-                ''    f_FindAllTheHTMLFromTheURL = s_p_RetrievedHtml
-                ''    i_p_TotalPass = i_p_TotalPass + 1
-                ''    i_p_GotTheHtml = i_p_GotTheHtml + 1
-                ''Else
-                ''    s_p_RetrievedHtml = "stop"
-                ''    f_FindAllTheHTMLFromTheURL = "stop"
-                ''    i_p_TotalPass = i_p_TotalPass + 1
-                ''End If
+                If t.Join(i_TimeToJoin) Then
+                    f_FindAllTheHTMLFromTheURL = s_p_RetrievedHtml
+                    i_p_TotalPass = i_p_TotalPass + 1
+                    i_p_GotTheHtml = i_p_GotTheHtml + 1
+                Else
+                    s_p_RetrievedHtml = "stop"
+                    f_FindAllTheHTMLFromTheURL = "stop"
+                    i_p_TotalPass = i_p_TotalPass + 1
+                End If
 
-                ''t.Abort()
+                t.Abort()
 
                 If Len(s_p_RetrievedHtml) > 0 Then
                     f_FindAllTheHTMLFromTheURL = s_p_RetrievedHtml
@@ -1343,6 +1343,8 @@ Public Module LookForFiles
                     Dim s_machineURL As String = "1"
                     Dim myInsertQuery As String = "INSERT INTO URLFOUND (ID,url,DateHour,GoodSpot,Done,Machine,Signature,Keywords,ShortURL,FreshPage,URL_PAGE,sQueryUrlFound)" _
                     & "Values(" & i_ID & ",'" & Trim(sToInsert) & "','" & (sDate) & "'," & i_goodSpotSentOver & ",'" & (sNo) & "','" & (s_machineURL) & "'," & i_foundSignature & "," & i_foundKeywords & ",'" & s_shortURL & "','" & s_freshPage & "','" & s_pageContent & "','" & sSendstrURI & "')"
+
+                    Call InsertURLFOUNDFU(myInsertQuery)
 
                     Dim myCommand As New OleDbCommand(myInsertQuery)
                     myCommand.Connection = myConnection
@@ -2215,6 +2217,7 @@ Public Module LookForFiles
                 i_CountPage = i_CountPage + 1
 
             Loop
+
         Catch e_LookForFiles_1384 As Exception
             Dim sSource As String = "AP_DENIS"
             Dim sLog As String = "Applo"

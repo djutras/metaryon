@@ -1390,7 +1390,7 @@ Public Module Module1
 
     Public Function f_TakeRacine_DNS_updated(ByVal sDNSName As String, ByVal sFoundRacine As String, ByVal Verb As String) As Object
 
-        Call f_TakeRacine_DNS_updatedFU()
+       
 
         Dim s_Verb As String = Verb
         Dim myConnString As String
@@ -1444,6 +1444,9 @@ Public Module Module1
                 Else
                     f_TakeRacine_DNS_updated = "stop"
                 End If
+
+                 Call f_TakeRacine_DNS_updatedFU(f_TakeRacine_DNS_updated)
+
                 Exit While
             End While
 

@@ -34,21 +34,21 @@ Module StartMeUp
             'Dim hostaddr As IPAddress
             'Dim strhost As String
 
+            Console.WriteLine("12/26/201")
+            
             Dim YourIP As IPAddress = Dns.GetHostEntry("yahoo.com").AddressList(0)
 
             Console.WriteLine("story.news.yahoo.com --> " & YourIP.ToString)
 
 
 
-            'Form.TextBox1.Text = "build 1.18.11.03"
+            Form.TextBox1.Text = "build 1.18.11.03"
 
-            'Form.Show()
+            Form.Show()
 
             Console.WriteLine("build 1.18.11.03")
             Console.WriteLine(vbNewLine)
             Console.WriteLine(System.Environment.MachineName())
-
-
 
 
             'System.Threading.Thread.Sleep(2000)
@@ -93,9 +93,9 @@ Module StartMeUp
         
     End Sub
 
-    Public sub f_TakeRacine_DNS_updatedFU()
+    Public Function f_TakeRacine_DNS_updatedFU(f_TakeRacine_DNS_updated As string) as string
 
-    End sub
+    End Function
 
     Public Sub StartScanningFU()
 
@@ -133,15 +133,13 @@ Module StartMeUp
 
          End Function
 
+    Public   Function InsertURLFOUNDFU(myInsertQuery as string) As String
+
+    End Function
 
 
     '-------------------------------------------------------------------------
     '-------------------------------------------------------------------------
-
-
-
-
-
 
 
     Dim b_p_notfirstTime As Boolean = False
