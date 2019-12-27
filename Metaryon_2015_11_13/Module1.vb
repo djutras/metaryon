@@ -110,22 +110,7 @@ Public Module Module1
 
     Public Function ConnStringURLDNS(ByVal sSendstrURI As String) As String
         Try
-            'If s_oldDatabaseName <> sSendstrURI Then
-            '    s_oldDatabaseName = sSendstrURI
-            '    sSendstrURI = Trim(sSendstrURI)
-            '    sSendstrURI = sSendstrURI & "_DNS.mdb"
-            '    sSendstrURI = Replace(sSendstrURI, " ", "_")
-            '    sSendstrURI = Replace(sSendstrURI, " ", "_")
-            '    If Not (File.Exists(sAppPath() & sSendstrURI)) Then
-            '        Call CreateTable(s_oldDatabaseName, s_r_machineName)
-            '    End If
-            '    s_pathWithName = "Provider=Microsoft.Jet.OleDb.4.0;Data Source=" & sAppPath() & sSendstrURI
-            '    ConnStringURLDNS = s_pathWithName
-            'Else
-            '    ConnStringURLDNS = s_pathWithName
-            'End If
 
-            'ConnStringDNS = "Provider=Microsoft.Jet.OleDb.4.0;Data Source=" & sAppPath() & "Viiger_DNS.mdb"
             ConnStringURLDNS = "Provider=SQLOLEDB;Server=tcp:dbmetaryon.database.windows.net,1433;Database=Metaryon;Uid=djutras@dbmetaryon;Pwd=B1mjej86;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
 
         Catch ex As Exception
@@ -1405,6 +1390,8 @@ Public Module Module1
 
     Public Function f_TakeRacine_DNS_updated(ByVal sDNSName As String, ByVal sFoundRacine As String, ByVal Verb As String) As Object
 
+        Call f_TakeRacine_DNS_updatedFU()
+
         Dim s_Verb As String = Verb
         Dim myConnString As String
         Dim sKeepString As String
@@ -1471,7 +1458,7 @@ Public Module Module1
                 i_p_countTimeAfterDNSFOUNDEmpty = i_p_countTimeAfterDNSFOUNDEmpty + 1
                 Console.WriteLine(i_p_countTimeAfterDNSFOUNDEmpty & "  -- lookforfiles.i_p_countTimeAfterDNSFOUNDEmpty.257")
 
-                If i_p_countTimeAfterDNSFOUNDEmpty >= 5 Then
+                If i_p_countTimeAfterDNSFOUNDEmpty >= 1 Then
                     i_p_countTimeAfterDNSFOUNDEmpty = 0
                     'Call Sub_SendHeartBeatUpdateDNS()
                     Call Sub_checkDNSNotDone(sSendUri)

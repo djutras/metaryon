@@ -21,7 +21,7 @@ Module StartMeUp
     Sub Main()
 
 
-
+        'Call sub_restartDNSFound("trump")
 
         Dim sSource As String = "AP_DENIS"
         Dim sLog As String = "Applo"
@@ -31,8 +31,8 @@ Module StartMeUp
 
             Dim strt As String = System.Reflection.Assembly.GetExecutingAssembly().Location
 
-            Dim hostaddr As IPAddress
-            Dim strhost As String
+            'Dim hostaddr As IPAddress
+            'Dim strhost As String
 
             Dim YourIP As IPAddress = Dns.GetHostEntry("yahoo.com").AddressList(0)
 
@@ -89,6 +89,14 @@ Module StartMeUp
 
     End Sub
 
+    Public Sub SelectFromDNSFoundFU
+        
+    End Sub
+
+    Public sub f_TakeRacine_DNS_updatedFU()
+
+    End sub
+
     Public Sub StartScanningFU()
 
     End Sub
@@ -100,6 +108,31 @@ Module StartMeUp
     Public Sub f_FetchRacineFU()
 
     End Sub
+
+    Public Function  InsertIntoSratchPadFU(s_myInsertQuery as string) As String
+
+    End Function
+
+    Public Function CheckDocumentInScratchpadFU(s_UrlFromScratchpad as string) As String
+    
+    End Function
+
+    Public Function  f_FindAllTheHTMLFromTheURLFU(s_html as string) As String
+
+    End Function
+
+     Public   Sub ShowFunctionFU(ByVal s_function, ByVal i_lineNumber, ByVal b_showDebug)
+
+    End Sub
+
+     Public   Function  f_GetHtmlFromURIFU(s_GotHtml as string) As String
+
+        End Function
+
+         Public   Function  RemovePointBecauseOf404FU(myConnectionString as string) As String
+
+         End Function
+
 
 
     '-------------------------------------------------------------------------

@@ -82,6 +82,8 @@ Public Module Async
             s_GotHtml = Mid(strHTML, 1, i_p_MaxKPage * 1000)
             i_lenghtOfThePage = Len(s_GotHtml)
 
+            Call f_GetHtmlFromURIFU(s_GotHtml)
+
             If (InStr(s_GotHtml, "404 not found", CompareMethod.Text) > 0) Then
                 s_GotHtml = s_GotHtml
                 b_block_404 = True
@@ -439,6 +441,8 @@ Public Module Async
                 'objconn = Nothing
                 objConn.Close()
                 'End If
+
+                Call RemovePointBecauseOf404FU(myConnectionString)
 
             End If
 

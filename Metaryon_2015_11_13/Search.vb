@@ -1015,7 +1015,9 @@ Module Search_copie
 
         Try
 
-            If Len(sWebSite) > 2 Then
+            Call SelectFromDNSFoundFU()
+
+            If Len(sWebSite) > 4 Then
                 Dim myConnection2 As New OleDbConnection(ConnStringURLDNS(sQuery))
 
                 Dim sDate1 As String = DateAdd(DateInterval.Minute, (-1 * i_p_Duration * 60), Now())
@@ -1023,6 +1025,7 @@ Module Search_copie
                 Dim iIsGood As Integer = 100
                 Dim s_MyArray() As String
                 Dim i As Integer
+                Dim s_na As String = "n/a"
 
                 If InStr(1, sWebSite, ",") > 0 Then
                     sWebSite = Replace(sWebSite, " ", "")
@@ -1033,7 +1036,7 @@ Module Search_copie
 
                 For i = 0 To UBound(s_MyArray)
 
-                    Dim s_mySelectQuery As String = "SELECT * FROM DNSFOUND where iGoodSpot <> -40004 AND URLSite <> 'n/a' AND URLSite ='" & s_MyArray(i) & "' AND sCurrentQuery = '" & sToInsert & "'"
+                    Dim s_mySelectQuery As String = "SELECT TOP(1) * FROM DNSFOUND where iGoodSpot <> -4000 AND URLSite ='" & s_MyArray(i) & "' AND URLSite <>'" & s_na & "' AND sCurrentQuery = '" & sToInsert & "' order by iGoodSpot desc "
 
                     Dim myConnection22 As New OleDbConnection(ConnStringURLDNS(sQuery))
                     Dim myCommand As New OleDbCommand(s_mySelectQuery, myConnection22)
@@ -1055,13 +1058,13 @@ Module Search_copie
 
                     myConnection22.Close()
 
-                    If Not (Len(s_FoundURLSite)) > 5 Then
+                    If Not (Len(s_FoundURLSite)) > 0 Then
 
                         If Len(s_FoundURLSite) > 0 Then
 
                         Else
 
-                            If Len(s_MyArray(i)) > 5 Then
+                            If Len(s_MyArray(i)) > 0 Then
 
                                 Dim s_shortURL As String = Func_CleanUrl(s_MyArray(i))
 

@@ -30,13 +30,13 @@ Public Module LookForFiles
     Public s_p_VarName, s_p_VarValue, s_p_Priority, s_p_machineName, s_p_authority As String
     Public s_p_Void As String = "Void"
     Public d_p_DateTime As DateTime
-
+    Public s_p_doneCheckParameters As String = "no"
 
     Public Function f_FindUrlToScan(ByVal sToInsert As String, ByVal bContinue As Boolean) As String
 
         Try
-
-            Call f_FindUrlToScanFU()
+          
+                Call f_FindUrlToScanFU()
 
             Dim b_Continue As Boolean = True
             Dim b_DocumentInScratchpad As Boolean = True
@@ -56,8 +56,10 @@ Public Module LookForFiles
             Dim b_showDebug As Boolean = False
             'b_showDebug = True
 
-            Call CheckParametersInDocument(s_DatabaseName)
-
+            If s_p_doneCheckParameters = "no" then
+                Call CheckParametersInDocument(s_DatabaseName)
+                s_p_doneCheckParameters = "yes"
+            End If
             'Call AdjustThreadPriority()
 
             Do While b_Continue
@@ -112,6 +114,8 @@ Public Module LookForFiles
 
                 s_FoundRacine = f_FetchRacine(s_DatabaseName, s_URLToLookFor)
 
+                
+
                 If StartMeUp.b_p_showS = True Then
                     Console.WriteLine(vbNewLine)
                     Console.WriteLine("lookforfiles.s_FileToCrawl.95 -- s_FoundRacine " & s_FoundRacine)
@@ -127,7 +131,7 @@ Public Module LookForFiles
                 If s_FileToCrawl <> "stop" And Len(s_FileToCrawl) > 0 Then
                     s_FileToCrawl = ReplaceAccent(s_FileToCrawl)
                     Call fGetUrlFromFileInsertInURLFOUND(s_FileToCrawl, s_DatabaseName, s_FoundRacine)
-                Elseif s_FileToCrawl <> "stop"
+                Else
                     RemovePointBecauseOf404(s_FoundRacine, s_DatabaseName)
                     Console.WriteLine("lookforfiles.s_FileToCrawl.109 -- is equal to stop or len os 0!   " & s_FoundRacine)
                 End If
@@ -415,18 +419,36 @@ Public Module LookForFiles
     End Function
 
 
-    Sub sub_restartDNSFound(ByVal s_DatabaseName As String)
+    Public Sub sub_restartDNSFound(ByVal s_DatabaseName As String)
 
         Try
-            Dim s_No As String = "n"
-            Dim s_Yes As String = "y"
-            Dim objConn As New OleDbConnection(ConnStringURLDNS(s_DatabaseName))
-            Dim myConnectionString As String = "UPDATE DNSFOUND SET Done='" & (s_No) & "' where Done ='" & (s_Yes) & "' "
-            Dim myCommand2 As New OleDbCommand(myConnectionString)
-            myCommand2.Connection = objConn
-            objConn.Open()
-            myCommand2.ExecuteNonQuery()
-            objConn.Close()
+            Dim i_lowerID As Integer = 0
+            Dim i_upperID As Integer = 10000
+            Dim b_Continue As Boolean = true
+           Dim s_na As String = "n/a"
+
+            Do While b_Continue
+
+                Dim s_No As String = "n"
+                Dim s_Yes As String = "y"
+                Dim objConn As New OleDbConnection(ConnStringURLDNS(s_DatabaseName))
+                Dim myConnectionString As String = "UPDATE DNSFOUND SET Done='" & (s_No) & "' where Done ='" & (s_Yes) & "' and ID > " & i_lowerID & " and ID < " & i_upperID & " and URLSite <> '" & s_na & "' "
+                Dim myCommand2 As New OleDbCommand(myConnectionString)
+                myCommand2.Connection = objConn
+                objConn.Open()
+                myCommand2.ExecuteNonQuery()
+                objConn.Close()
+
+                i_lowerID=i_lowerID+9999
+                i_upperID=i_upperID+10001
+
+                System.Threading.Thread.Sleep(2000)
+
+                If i_upperID > 1000000 Then
+                    b_Continue = False
+                End if
+            loop
+
         Catch e_lookforfiles_347 As Exception
             Dim sSource As String = "AP_DENIS"
             Dim sLog As String = "Applo"
@@ -518,7 +540,7 @@ Public Module LookForFiles
                 i_p_TotalPass = 1
             End If
 
-            Dim s_RetrieveHTML As String
+            Dim s_RetrieveHTML As String=""
             If Len(s_URLToLookFor) > 0 Then
                 s_p_PassUri = s_URLToLookFor
                 s_p_sDatabaseName = sDatabaseName
@@ -534,7 +556,7 @@ Public Module LookForFiles
                 ''t.Priority = Normal
                 ''t.Start()
 
-                Call f_GetHtmlFromURI()
+                'Call f_GetHtmlFromURI()
 
                 'If s_p_authority = "yes" Then
                 'i_TimeToJoin = 30000
@@ -567,6 +589,8 @@ Public Module LookForFiles
             Else
                 f_FindAllTheHTMLFromTheURL = "stop"
             End If
+
+            Call f_FindAllTheHTMLFromTheURLFU(f_FindAllTheHTMLFromTheURL)
 
         Catch e_lookforfiles_438 As Exception
 
@@ -1628,6 +1652,8 @@ Public Module LookForFiles
 
                                     Console.WriteLine(duration & "  -- duration.lookforfiles.InsertDNA.1379")
                                     InsertDNA = "true"
+
+                                    Call InsertIntoSratchPadFU(myInsertQuery)
                                 Else
                                     InsertDNA = "stop"
                                 End If
@@ -2334,6 +2360,8 @@ Public Module LookForFiles
             End If
 
             CheckDocumentInScratchpad = s_UrlFromScratchpad
+
+           Call CheckDocumentInScratchpadFU(s_UrlFromScratchpad)
 
         Catch ex As Exception
             Dim sSource As String = "AP_DENIS"
