@@ -17,60 +17,6 @@ Public Module Module1
     Public iPercFree As Integer
     Public iMinFree As Integer
 
-    '    Function SQLInt(ByVal idata) As Integer
-
-    '        Try
-
-    '            Dim i_zero As Integer = 0
-
-    '            If IsNumeric(idata) Then
-    '                SQLInt = (CInt(idata))
-    '            Else
-    '                SQLInt = i_zero
-    '            End If
-
-    '        Catch ex As Exception
-    '            Dim sSource As String = "AP_DENIS"
-    '            Dim sLog As String = "Applo"
-    '            EventLog.WriteEntry(sSource, " Module1.35 --> " & ex.Message, EventLogEntryType.Information, 44)
-    '        End Try
-
-    '    End Function
-
-    '    Public Function fFreeSpace() As Integer
-    '        Try
-    '            Dim iPercFreeSpace As Integer
-    '            Dim iMinFreeSpace As Integer
-
-    '            Dim path As ManagementPath
-    '            Dim o As ManagementObject
-    '            path = New ManagementPath
-    '            path.Server = System.Environment.MachineName()
-    '            path.NamespacePath = "root\CIMV2"
-    '            path.RelativePath = "Win32_LogicalDisk='c:'"
-    '            o = New ManagementObject(path)
-
-    '            Console.WriteLine(o.Item("DriveType"))
-    '            'MessageBox.Show(o.Item("DriveType").ToString, "DriveType")
-
-    '            Console.WriteLine(o.Item("Size"))
-    '            'MessageBox.Show(o.Item("Size").ToString, "Size")
-
-    '            Console.WriteLine(o.Item("freespace"))
-    '            'MessageBox.Show(o.Item("freespace").ToString, "freespace")
-
-    '            Console.WriteLine(o.Item("Name"))
-    '            'MessageBox.Show(o.Item("Name").ToString, "Name")
-
-    '            Console.WriteLine(o.Item("Description"))
-    '            'MessageBox.Show(o.Item("Description").ToString, "Description")
-    '        Catch ex As Exception
-    '            Dim sSource As String = "AP_DENIS"
-    '            Dim sLog As String = "Applo"
-    '            EventLog.WriteEntry(sSource, " module1.68 --> " & ex.Message, EventLogEntryType.Information, 45)
-    '        End Try
-    '    End Function
-
     Public Function ConnString() As String
         ConnString = "Provider=SQLOLEDB;Server=tcp:dbmetaryon.database.windows.net,1433;Database=Metaryon;Uid=djutras@dbmetaryon;Pwd=B1mjej86;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
     End Function
@@ -80,22 +26,7 @@ Public Module Module1
 
     Public Function ConnStringURL(ByVal sSendstrURI As String) As String
         Try
-            'If s_oldDatabaseNameUrl <> sSendstrURI Then
-            '    s_oldDatabaseNameUrl = sSendstrURI
-            '    Dim s_keepsSendstrURI As String = sSendstrURI
-            '    sSendstrURI = Trim(sSendstrURI)
-            '    sSendstrURI = sSendstrURI & ".mdb"
-            '    sSendstrURI = Replace(sSendstrURI, " ", "_")
-            '    If Not (File.Exists(sAppPath() & sSendstrURI)) Then
-            '        Call CreateTable(s_keepsSendstrURI, s_r_machineName)
-            '    End If
-            '    s_pathWithNameUrl = "Provider=Microsoft.Jet.OleDb.4.0;Data Source=" & sAppPath() & sSendstrURI
-            '    ConnStringURL = s_pathWithNameUrl
-            'Else
-            '    ConnStringURL = s_pathWithNameUrl
-            'End If
 
-            'ConnStringDNS = "Provider=Microsoft.Jet.OleDb.4.0;Data Source=" & sAppPath() & "Viiger_DNS.mdb"
             ConnStringURL = "Provider=SQLOLEDB;Server=tcp:dbmetaryon.database.windows.net,1433;Database=Metaryon;Uid=djutras@dbmetaryon;Pwd=B1mjej86;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
 
         Catch ex As Exception
