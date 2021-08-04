@@ -1453,9 +1453,9 @@ Public Module DiskManagement
             objConn.Open()
             myCommand2.ExecuteNonQuery()
             objConn.Close()
-            Console.WriteLine(vbNewLine)
-            Console.WriteLine("DeleteArchive.1445 successfull!")
-            Console.WriteLine(vbNewLine)
+            'Console.WriteLine(vbNewLine)
+            'Console.WriteLine("DeleteArchive.1445 successfull!")
+            'Console.WriteLine(vbNewLine)
         Catch ex As Exception
             Dim sSource As String = "AP_DENIS"
             Dim sLog As String = "Applo"

@@ -19,7 +19,7 @@ Module Search_copie
 
     Public Sub fFindWhatToLookFor()
 
-        Call fFindWhatToLookForFU()
+        'Call fFindWhatToLookForFU()
 
         Dim sSource As String = "AP_DENIS"
         Dim sLog As String = "Applo"
@@ -801,8 +801,8 @@ Module Search_copie
 
                 ' Call sWhatRange()
 
-                '            Console.WriteLine(sr_RangeMinus & " --- search.sr_RangeMinus.596 ")
-                '            Console.WriteLine(sr_RangePlus & " --- search.sr_RangePlus.597 ")
+                '            'Console.WriteLine(sr_RangeMinus & " --- search.sr_RangeMinus.596 ")
+                '            'Console.WriteLine(sr_RangePlus & " --- search.sr_RangePlus.597 ")
 
                 'Call ExportParameters()
 
@@ -822,8 +822,8 @@ Module Search_copie
 
                     'Call CheckSizeOfLog()
 
-                    Console.WriteLine("Go to sleep 3 seconds, search.826")
-                    Console.WriteLine(vbNewLine)
+                    'Console.WriteLine("Go to sleep 3 seconds, search.826")
+                    'Console.WriteLine(vbNewLine)
                     ''''    End If
 
                     '                If CheckAuthority() Then
@@ -1268,7 +1268,7 @@ Module Search_copie
             's = (CType(h.AddressList.GetValue(0), IPAddress).ToString)
             's_hostName = System.Net.Dns.Resolve(s).HostName()
 
-            Console.WriteLine(s_hostName & " --- search.1139")
+            'Console.WriteLine(s_hostName & " --- search.1139")
 
             Dim mySelectQuery As String = "SELECT * FROM RANGE where HostName ='" & s_machineName & "' and SentOver ='" & s_no & "'"
             Dim myConnection1 As New OleDbConnection(ConnStringDNA())
@@ -1313,7 +1313,7 @@ Module Search_copie
             's = (CType(h.AddressList.GetValue(0), IPAddress).ToString)
             's_hostName = System.Net.Dns.Resolve(s).HostName()
 
-            Console.WriteLine(s_hostName & " --- search.1139")
+            'Console.WriteLine(s_hostName & " --- search.1139")
 
             Dim mySelectQuery As String = "SELECT * FROM RANGE where HostName ='" & s_machineName & "'"
             Dim myConnection1 As New OleDbConnection(ConnStringDNA())
@@ -1655,9 +1655,9 @@ Module Search_copie
 
                     End If
 
-                    Console.WriteLine(vbNewLine)
-                    Console.WriteLine(i_setTheCounterBack & "      i_setTheCounterBack")
-                    Console.WriteLine(vbNewLine)
+                    'Console.WriteLine(vbNewLine)
+                    'Console.WriteLine(i_setTheCounterBack & "      i_setTheCounterBack")
+                    'Console.WriteLine(vbNewLine)
 
                 End If
 
@@ -1749,7 +1749,7 @@ Module Search_copie
                         Exit Do
                     End If
                     'EventLog.WriteEntry(sSource, " e_search_2614, we are not connected to the internet, and that's bad! ", EventLogEntryType.Information, 600)
-                    Console.WriteLine(" e_search_2614, we are not connected to the internet, and that's bad! ")
+                    'Console.WriteLine(" e_search_2614, we are not connected to the internet, and that's bad! ")
                     System.Threading.Thread.Sleep(30000)
                 Loop
 
@@ -1763,7 +1763,7 @@ Module Search_copie
     Public b_p_closedTheSeedingProcess As Boolean
 
     Sub Subwrite(Optional ByVal s_variable As String = "", Optional ByVal s_form As String = "", Optional ByVal s_lineNumber As String = "")
-        Console.WriteLine(s_variable & " -- " & s_form & "." & s_lineNumber)
+        'Console.WriteLine(s_variable & " -- " & s_form & "." & s_lineNumber)
     End Sub
 
 

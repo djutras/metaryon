@@ -25,11 +25,11 @@ Module Mod1
     Private Sub MYExceptionHandler(ByVal sender As Object, ByVal e As UnhandledExceptionEventArgs)
         Dim EX As Exception
         EX = e.ExceptionObject
-        Console.WriteLine(EX.StackTrace)
+        'Console.WriteLine(EX.StackTrace)
     End Sub
 
     Private Sub MYThreadHandler(ByVal sender As Object, ByVal e As Threading.ThreadExceptionEventArgs)
-        Console.WriteLine(e.Exception.StackTrace)
+        'Console.WriteLine(e.Exception.StackTrace)
     End Sub
 
 

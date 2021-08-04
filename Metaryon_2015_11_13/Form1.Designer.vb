@@ -46,6 +46,7 @@ Partial Class Form1
         Me.TB2ScratchPad = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TBScratchPad = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -242,11 +243,21 @@ Partial Class Form1
         Me.TBScratchPad.Size = New System.Drawing.Size(617, 20)
         Me.TBScratchPad.TabIndex = 21
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(24, 174)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 24
+        Me.Button1.Text = "Start"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1433, 851)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TB2ScratchPad)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TBScratchPad)
@@ -302,4 +313,5 @@ Partial Class Form1
     Friend WithEvents TB2ScratchPad As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents TBScratchPad As System.Windows.Forms.TextBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

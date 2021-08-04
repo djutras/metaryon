@@ -5,12 +5,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CC919EA0-ECAA-481D-9973-BAC34E8C15D3}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <StartupObject>Metaryon_2015_11_13.StartMeUp</StartupObject>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Metaryon_2015_11_13.Form1</StartupObject>
     <RootNamespace>Metaryon_2015_11_13</RootNamespace>
     <AssemblyName>Metaryon_2015_11_13</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Console</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
@@ -93,6 +93,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>

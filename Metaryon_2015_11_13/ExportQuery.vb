@@ -290,11 +290,11 @@ Module ExportQuery
                 Dim iKeepMinute As Integer
                 Dim s_verb As String = "HeartBeat"
                 If Now() >= DateAdd(DateInterval.Minute, 15, d_p_timeOfPrecedentHeartbeat) Then
-                    Console.WriteLine(vbNewLine)
-                    Console.WriteLine("**************************************************************************")
-                    Console.WriteLine(s_verb & s_r_machineName & " -- this machine sent a heartbeat!")
-                    Console.WriteLine("**************************************************************************")
-                    Console.WriteLine(vbNewLine)
+                    'Console.WriteLine(vbNewLine)
+                    'Console.WriteLine("**************************************************************************")
+                    'Console.WriteLine(s_verb & s_r_machineName & " -- this machine sent a heartbeat!")
+                    'Console.WriteLine("**************************************************************************")
+                    'Console.WriteLine(vbNewLine)
                     ' Call BroadCastDNSFOUND(s_verb, s_r_machineName)
                     d_p_timeOfPrecedentHeartbeat = Now()
                 End If
@@ -314,13 +314,13 @@ Module ExportQuery
     '            Dim iKeepMinute As Integer
     '            Dim s_verb As String = "SendAcknowHeartBeat"
 
-    '            Console.WriteLine(vbNewLine)
-    '            Console.WriteLine("***************************************************************************")
-    '            Console.WriteLine("***************************************************************************")
-    '            Console.WriteLine(s_verb & " from " & s_r_machineName & " to " & URIToPass & " " & Now())
-    '            Console.WriteLine("***************************************************************************")
-    '            Console.WriteLine("***************************************************************************")
-    '            Console.WriteLine(vbNewLine)
+    '            'Console.WriteLine(vbNewLine)
+    '            'Console.WriteLine("***************************************************************************")
+    '            'Console.WriteLine("***************************************************************************")
+    '            'Console.WriteLine(s_verb & " from " & s_r_machineName & " to " & URIToPass & " " & Now())
+    '            'Console.WriteLine("***************************************************************************")
+    '            'Console.WriteLine("***************************************************************************")
+    '            'Console.WriteLine(vbNewLine)
 
     '            Call BroadCastDNSFOUND(s_verb, URIToPass)
 
@@ -347,11 +347,11 @@ Module ExportQuery
 
     '        iKeepMinute = DateDiff(DateInterval.Minute, d_p_dateHeartBeat, Now)
 
-    '        Console.WriteLine(vbNewLine)
-    '        Console.WriteLine("***********************************************************************************")
-    '        Console.WriteLine(s_verb & s_r_machineName & " -- this machine sent a heartbeat!")
-    '        Console.WriteLine("***********************************************************************************")
-    '        Console.WriteLine(vbNewLine)
+    '        'Console.WriteLine(vbNewLine)
+    '        'Console.WriteLine("***********************************************************************************")
+    '        'Console.WriteLine(s_verb & s_r_machineName & " -- this machine sent a heartbeat!")
+    '        'Console.WriteLine("***********************************************************************************")
+    '        'Console.WriteLine(vbNewLine)
 
     '        Call BroadCastDNSFOUND(s_verb, s_sendTotalCount)
 

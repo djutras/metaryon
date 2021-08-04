@@ -21,17 +21,17 @@ Module Module2
 
     Public Sub FindSeeds1()
 
-        If Form.CheckSeed2.Checked = True Then
+        If Form1.CheckSeed2.Checked = True Then
 
             If StartMeUp.b_p_showS = True Then
-                Console.WriteLine("SeedCrawler.23 -- DateTime.Now.Day  " & DateTime.Now.Day)
+                'Console.WriteLine("SeedCrawler.23 -- DateTime.Now.Day  " & DateTime.Now.Day)
             End If
             'If i_countTimeFindSeeds = 0 Then
             Call FindSeeds()
             'End If
 
             If i_countTimeFindSeeds = 0 And i_countFindSeed = 0 And s_p_authority = "yes" Then
-                Console.WriteLine("SeedCrawler.26 -- DateTime.Now.Day  " & DateTime.Now.Day)
+                'Console.WriteLine("SeedCrawler.26 -- DateTime.Now.Day  " & DateTime.Now.Day)
                 Call UpdateSubQueryToDo()
                 Call FindSeeds()
             End If
@@ -40,7 +40,7 @@ Module Module2
 
             If (i_countFindSeed = 1 Or i_countFindSeed > 10) And s_p_authority = "yes" Then
                 If StartMeUp.b_p_showS = True Then
-                    Console.WriteLine("SeedCrawler.34 -- DateTime.Now.Day  " & DateTime.Now.Day)
+                    'Console.WriteLine("SeedCrawler.34 -- DateTime.Now.Day  " & DateTime.Now.Day)
                 End If
                 Call UpdateSubQueryToDo()
                 Call FindSeeds()
@@ -74,7 +74,7 @@ Module Module2
     Public Sub FindSeeds()
         Try
 
-            If Form.CheckSeed2.Checked = True Then
+            If Form1.CheckSeed2.Checked = True Then
 
                 Dim s_SearchToolName As String
                 Dim b_continue As Boolean = True
@@ -144,7 +144,7 @@ Module Module2
                         Call SendParametersAndCleanup()
 
                     Else
-                        '                    Console.WriteLine(" seedcrawlers.133 --> There is no database to access? s_p_datName --> " & s_p_datName)
+                        '                    'Console.WriteLine(" seedcrawlers.133 --> There is no database to access? s_p_datName --> " & s_p_datName)
                         '                    System.Threading.Thread.Sleep(10000)
                         '                    Exit Do
                     End If
@@ -571,7 +571,7 @@ Module Module2
 
                 Do While (bContinueTimeGoogle And b_boolJustStarted = False)
 
-                    Console.WriteLine(s_timeDash)
+                    'Console.WriteLine(s_timeDash)
                     s_timeDash = s_timeDash + "-"
                     i_addTimeGoogle = i_addTimeGoogle
                     System.Threading.Thread.Sleep(i_addTimeGoogle)
@@ -838,7 +838,7 @@ Module Module2
         Try
 
             Do While (bContinueTimeGoogle And b_boolJustStarted = False)
-                Console.WriteLine(s_timeDash)
+                'Console.WriteLine(s_timeDash)
                 s_timeDash = s_timeDash + "-"
                 i_addTimeGoogle = i_addTimeGoogle
                 System.Threading.Thread.Sleep(i_addTimeGoogle)

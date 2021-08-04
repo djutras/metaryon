@@ -124,12 +124,12 @@ Public Module Async
                 b_block_404 = True
             End If
 
-            Form.TBLenghtPage.Text = i_lenghtOfThePage.ToString
-            Form.TBLenghtPage.Update()
+            Form1.TBLenghtPage.Text = i_lenghtOfThePage.ToString
+            Form1.TBLenghtPage.Update()
 
-            Form.Refresh()
+            Form1.Refresh()
 
-            Console.WriteLine("Async.81 -- i_lenghtOfThePage -- " & i_lenghtOfThePage)
+            'Console.WriteLine("Async.81 -- i_lenghtOfThePage -- " & i_lenghtOfThePage)
 
             If i_lenghtOfThePage >= (i_p_MinKPage * 1000) Then
                 s_p_RetrievedHtml = s_GotHtml
@@ -172,7 +172,7 @@ Public Module Async
     End Sub
 
 
-    Sub Block404ThatURLInDNSFOUND(ByVal s_URLSite, ByVal sDatabaseName, ByVal i_lenghtOfThePage,byval s_error)
+    Sub Block404ThatURLInDNSFOUND(ByVal s_URLSite, ByVal sDatabaseName, ByVal i_lenghtOfThePage, ByVal s_error)
         Dim sSource As String = "AP_DENIS"
         Dim sLog As String = "Applo"
         Try
@@ -180,14 +180,14 @@ Public Module Async
 
             If Len(s_URLSite) > 0 And Len(sDatabaseName) > 0 Then
 
-                Form.TB40004.Text = s_URLSite.ToString
-                Form.TextBox40004.Text = "-40004"
-                Form.TBLenghtPage.Text = i_lenghtOfThePage.ToString
+                Form1.TB40004.Text = s_URLSite.ToString
+                Form1.TextBox40004.Text = "-40004"
+                Form1.TBLenghtPage.Text = i_lenghtOfThePage.ToString
 
-                Form.TB40004.Update()
-                Form.TextBox40004.Update()
-                Form.TBLenghtPage.Update()
-                Form.Refresh()
+                Form1.TB40004.Update()
+                Form1.TextBox40004.Update()
+                Form1.TBLenghtPage.Update()
+                Form1.Refresh()
 
                 Dim s_Yes As String = "y"
 
@@ -209,7 +209,7 @@ Public Module Async
 
             End If
 
-            Console.WriteLine("Insert 404 Block404ThatURLInDNSFOUND ---> " & s_URLSite)
+            'Console.WriteLine("Insert 404 Block404ThatURLInDNSFOUND ---> " & s_URLSite)
 
         Catch e_module1_600 As Exception
 
@@ -229,12 +229,12 @@ Public Module Async
 
             If Len(s_URLSite) > 0 And Len(sDatabaseName) > 0 Then
 
-                Form.TB40004.Text = s_URLSite.ToString
-                Form.TextBox40004.Text = "-40004"
+                Form1.TB40004.Text = s_URLSite.ToString
+                Form1.TextBox40004.Text = "-40004"
 
-                Form.TB40004.Update()
-                Form.TextBox40004.Update()
-                Form.Refresh()
+                Form1.TB40004.Update()
+                Form1.TextBox40004.Update()
+                Form1.Refresh()
 
 
                 Dim s_Yes As String = "y"
@@ -251,7 +251,7 @@ Public Module Async
                 'objconn = Nothing
                 objConn.Close()
 
-                Console.WriteLine("Insert 404 Block404ThatURLInURLFOUND ---> " & s_URLSite)
+                'Console.WriteLine("Insert 404 Block404ThatURLInURLFOUND ---> " & s_URLSite)
 
             Else
 
@@ -479,7 +479,7 @@ Public Module Async
                 Dim mySelectQuery As String
                 Dim i_countHostName As Int32
 
-                Console.WriteLine(s_hostName & " --- search.959")
+                'Console.WriteLine(s_hostName & " --- search.959")
 
                 mySelectQuery = "SELECT count(HOSTNAME) as CountHOSTNAME FROM RANGE where (Authority ='" & s_no & "' or Authority ='" & s_Noo & "')"
 
@@ -1241,7 +1241,7 @@ Public Module Async
             Dim Index As Integer
             While myReader.Read()
                 s_hostName = myReader("HostName")
-                Console.WriteLine(s_hostName & " --- Aync.870")
+                'Console.WriteLine(s_hostName & " --- Aync.870")
             End While
             If Not (myReader.IsClosed) Then
                 myReader.Close()
@@ -2197,7 +2197,7 @@ Public Module Async
             Dim mySelectQuery As String
             Dim s_hostNameFound As String
 
-            Console.WriteLine(s_hostName & " --- search.959")
+            'Console.WriteLine(s_hostName & " --- search.959")
 
             mySelectQuery = "SELECT HOSTNAME FROM RANGE where HOSTNAME ='" & s_hostName & "'"
 

@@ -66,11 +66,11 @@ Public Module LookForFiles
 
                 If StartMeUp.b_p_showS = True Then
 
-                    Console.WriteLine(vbNewLine)
-                    Console.WriteLine("-------------------------------------------------------------------------------")
-                    Console.WriteLine(s_p_authority & "  --> s_p_authority.lookforfiles.121")
-                    Console.WriteLine("-------------------------------------------------------------------------------")
-                    Console.WriteLine(vbNewLine)
+                    'Console.WriteLine(vbNewLine)
+                    'Console.WriteLine("-------------------------------------------------------------------------------")
+                    'Console.WriteLine(s_p_authority & "  --> s_p_authority.lookforfiles.121")
+                    'Console.WriteLine("-------------------------------------------------------------------------------")
+                    'Console.WriteLine(vbNewLine)
 
                 End If
 
@@ -117,8 +117,8 @@ Public Module LookForFiles
                 
 
                 If StartMeUp.b_p_showS = True Then
-                    Console.WriteLine(vbNewLine)
-                    Console.WriteLine("lookforfiles.s_FileToCrawl.95 -- s_FoundRacine " & s_FoundRacine)
+                    'Console.WriteLine(vbNewLine)
+                    'Console.WriteLine("lookforfiles.s_FileToCrawl.95 -- s_FoundRacine " & s_FoundRacine)
                 End If
 
                 If s_FoundRacine = "stop" Then
@@ -133,7 +133,7 @@ Public Module LookForFiles
                     Call fGetUrlFromFileInsertInURLFOUND(s_FileToCrawl, s_DatabaseName, s_FoundRacine)
                 Else
                     RemovePointBecauseOf404(s_FoundRacine, s_DatabaseName)
-                    Console.WriteLine("lookforfiles.s_FileToCrawl.109 -- is equal to stop or len os 0!   " & s_FoundRacine)
+                    'Console.WriteLine("lookforfiles.s_FileToCrawl.109 -- is equal to stop or len os 0!   " & s_FoundRacine)
                 End If
 
                 '//---- Begin to send document found
@@ -308,7 +308,7 @@ Public Module LookForFiles
             If b_dnsFoundEmpty Then
 
                 i_p_countTimeAfterDNSFOUNDEmpty = i_p_countTimeAfterDNSFOUNDEmpty + 1
-                Console.WriteLine(i_p_countTimeAfterDNSFOUNDEmpty & "  -- lookforfiles.i_p_countTimeAfterDNSFOUNDEmpty.257")
+                'Console.WriteLine(i_p_countTimeAfterDNSFOUNDEmpty & "  -- lookforfiles.i_p_countTimeAfterDNSFOUNDEmpty.257")
 
                 If i_p_countTimeAfterDNSFOUNDEmpty >= 50 Then
                     i_p_countTimeAfterDNSFOUNDEmpty = 0
@@ -394,21 +394,21 @@ Public Module LookForFiles
                     Dim sSource As String = "AP_DENIS"
                     Dim sLog As String = "Applo"
                     EventLog.WriteEntry(sSource, " lookforfiles.e_LookForFiles_301 --> " & e_LookForFiles_301.Message, EventLogEntryType.Information, 44)
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine(vbNewLine)
-                    Console.WriteLine("Database might be corrupted, please call programmers! e_LookForFiles_301  " & e_LookForFiles_301.Message)
-                    Console.WriteLine(vbNewLine)
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine("*****************************************************************")
-                    Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine(vbNewLine)
+                    'Console.WriteLine("Database might be corrupted, please call programmers! e_LookForFiles_301  " & e_LookForFiles_301.Message)
+                    'Console.WriteLine(vbNewLine)
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
+                    'Console.WriteLine("*****************************************************************")
                     System.Threading.Thread.Sleep(60000)
                 End Try
             Else
@@ -871,15 +871,15 @@ Public Module LookForFiles
 
                     If Len(s_searchEngine) > 2 Then
 
-                        Form.TextBox2.Text = s_URLToInsert.ToString
+                        Form1.TextBox2.Text = s_URLToInsert.ToString
 
-                        Form.TextBox2.Update()
+                        Form1.TextBox2.Update()
 
-                        Form.Refresh()
+                        Form1.Refresh()
 
 
 
-                        Console.WriteLine(s_URLToInsert & " - " & s_searchEngine & " -- lookforfiles.insert.842 Page --> " & i_GooglePage)
+                        'Console.WriteLine(s_URLToInsert & " - " & s_searchEngine & " -- lookforfiles.insert.842 Page --> " & i_GooglePage)
 
                         If CheckRangeGoHere(s_URLToInsert) = True Then
                             s_No = "n"
@@ -915,7 +915,7 @@ Public Module LookForFiles
             End If
 
             If b_alreadyInserted = False Then
-                Console.WriteLine(s_URLToInsert & " - " & s_searchEngine & " -- lookforfiles.Already_inserted.878 Page --> " & i_GooglePage)
+                'Console.WriteLine(s_URLToInsert & " - " & s_searchEngine & " -- lookforfiles.Already_inserted.878 Page --> " & i_GooglePage)
             End If
 
         Catch ex As Exception
@@ -1260,36 +1260,36 @@ Public Module LookForFiles
                     b_p_freshPages = False
                     b_p_dateFoundToday = False
 
-                    Form.UPDATEURLTB3.Text = sToInsert.ToString
-                    Form.FreshPageTB5.Text = s_freshPage.ToString
+                    Form1.UPDATEURLTB3.Text = sToInsert.ToString
+                    Form1.FreshPageTB5.Text = s_freshPage.ToString
 
-                    Form.UPDATEURLTB3.Update()
-                    Form.FreshPageTB5.Update()
+                    Form1.UPDATEURLTB3.Update()
+                    Form1.FreshPageTB5.Update()
 
-                    Form.TBScratchPad.Text = ""
-                    Form.INSERTURLFOUNDTB4.Text = ""
-                    Form.TB40004.Text = ""
-                    'Form.UPDATEURLTB3.Text = ""
-                    Form.RichTextBox1.Text = ""
-                    Form.TBLenghtPage.Text = ""
-                    Form.TBKeywords.Text = ""
-                    Form.TBSignature.Text = ""
-                    Form.FreshPageTB6.Text = ""
-                    Form.TextBox40004.Text = ""
-                    Form.FreshPageTB5.Text = ""
-                    Form.TBScratchPad.Update()
-                    Form.INSERTURLFOUNDTB4.Update()
-                    Form.TB40004.Update()
-                    'Form.UPDATEURLTB3.Update()
-                    Form.RichTextBox1.Update()
-                    Form.TBLenghtPage.Update()
-                    Form.TBKeywords.Update()
-                    Form.TBSignature.Update()
-                    Form.FreshPageTB6.Update()
-                    Form.TextBox40004.Update()
-                    Form.FreshPageTB5.Update()
+                    Form1.TBScratchPad.Text = ""
+                    Form1.INSERTURLFOUNDTB4.Text = ""
+                    Form1.TB40004.Text = ""
+                    'Form1.UPDATEURLTB3.Text = ""
+                    Form1.RichTextBox1.Text = ""
+                    Form1.TBLenghtPage.Text = ""
+                    Form1.TBKeywords.Text = ""
+                    Form1.TBSignature.Text = ""
+                    Form1.FreshPageTB6.Text = ""
+                    Form1.TextBox40004.Text = ""
+                    Form1.FreshPageTB5.Text = ""
+                    Form1.TBScratchPad.Update()
+                    Form1.INSERTURLFOUNDTB4.Update()
+                    Form1.TB40004.Update()
+                    'Form1.UPDATEURLTB3.Update()
+                    Form1.RichTextBox1.Update()
+                    Form1.TBLenghtPage.Update()
+                    Form1.TBKeywords.Update()
+                    Form1.TBSignature.Update()
+                    Form1.FreshPageTB6.Update()
+                    Form1.TextBox40004.Update()
+                    Form1.FreshPageTB5.Update()
 
-                    Form.Refresh()
+                    Form1.Refresh()
 
                     Dim s_archive As String = "ar"
 
@@ -1301,42 +1301,42 @@ Public Module LookForFiles
                     myCommand2.ExecuteNonQuery()
                     myCommand2.Connection.Close()
 
-                    Form.INSERTURLFOUNDTB4.Text = sToInsert.ToString
-                    Form.FreshPageTB6.Text = s_freshPage.ToString
-                    Form.RichTextBox1.Text = s_pageContent.ToString
-                    Form.TBSignature.Text = i_foundSignature.ToString
-                    Form.TBKeywords.Text = i_foundKeywords.ToString
+                    Form1.INSERTURLFOUNDTB4.Text = sToInsert.ToString
+                    Form1.FreshPageTB6.Text = s_freshPage.ToString
+                    Form1.RichTextBox1.Text = s_pageContent.ToString
+                    Form1.TBSignature.Text = i_foundSignature.ToString
+                    Form1.TBKeywords.Text = i_foundKeywords.ToString
 
-                    Form.INSERTURLFOUNDTB4.Update()
-                    Form.FreshPageTB6.Update()
-                    Form.RichTextBox1.Update()
-                    Form.TBSignature.Update()
-                    Form.TBKeywords.Update()
+                    Form1.INSERTURLFOUNDTB4.Update()
+                    Form1.FreshPageTB6.Update()
+                    Form1.RichTextBox1.Update()
+                    Form1.TBSignature.Update()
+                    Form1.TBKeywords.Update()
 
-                    Form.TBScratchPad.Text = ""
-                    'Form.INSERTURLFOUNDTB4.Text = ""
-                    Form.TB40004.Text = ""
-                    Form.UPDATEURLTB3.Text = ""
-                    'Form.RichTextBox1.Text = ""
-                    Form.TBLenghtPage.Text = ""
-                    'Form.TBKeywords.Text = ""
-                    'Form.TBSignature.Text = ""
-                    'Form.FreshPageTB6.Text = ""
-                    Form.TextBox40004.Text = ""
-                    Form.FreshPageTB5.Text = ""
-                    Form.TBScratchPad.Update()
-                    'Form.INSERTURLFOUNDTB4.Update()
-                    Form.TB40004.Update()
-                    Form.UPDATEURLTB3.Update()
-                    'Form.RichTextBox1.Update()
-                    Form.TBLenghtPage.Update()
-                    'Form.TBKeywords.Update()
-                    'Form.TBSignature.Update()
-                    ''Form.FreshPageTB6.Update()
-                    Form.TextBox40004.Update()
-                    Form.FreshPageTB5.Update()
+                    Form1.TBScratchPad.Text = ""
+                    'Form1.INSERTURLFOUNDTB4.Text = ""
+                    Form1.TB40004.Text = ""
+                    Form1.UPDATEURLTB3.Text = ""
+                    'Form1.RichTextBox1.Text = ""
+                    Form1.TBLenghtPage.Text = ""
+                    'Form1.TBKeywords.Text = ""
+                    'Form1.TBSignature.Text = ""
+                    'Form1.FreshPageTB6.Text = ""
+                    Form1.TextBox40004.Text = ""
+                    Form1.FreshPageTB5.Text = ""
+                    Form1.TBScratchPad.Update()
+                    'Form1.INSERTURLFOUNDTB4.Update()
+                    Form1.TB40004.Update()
+                    Form1.UPDATEURLTB3.Update()
+                    'Form1.RichTextBox1.Update()
+                    Form1.TBLenghtPage.Update()
+                    'Form1.TBKeywords.Update()
+                    'Form1.TBSignature.Update()
+                    ''Form1.FreshPageTB6.Update()
+                    Form1.TextBox40004.Update()
+                    Form1.FreshPageTB5.Update()
 
-                    Form.Refresh()
+                    Form1.Refresh()
 
 
                     Dim s_shortURL As String = Func_CleanUrl(sToInsert)
@@ -1353,17 +1353,17 @@ Public Module LookForFiles
                     myCommand.Connection.Close()
                     myConnection.Close()
 
-                    Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-                    Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-                    Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-                    Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-                    Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-                    Console.WriteLine(" myInsertQuery --> " & myInsertQuery)
-                    Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-                    Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-                    Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-                    Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-                    Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+                    'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+                    'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+                    'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+                    'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+                    'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+                    'Console.WriteLine(" myInsertQuery --> " & myInsertQuery)
+                    'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+                    'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+                    'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+                    'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+                    'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
 
                 End If
 
@@ -1389,10 +1389,10 @@ Public Module LookForFiles
         Catch ex As Exception
             CompacAccessUrlFound(sSendstrURI)
             EventLog.WriteEntry(sSource, " lookforfiles.1156 --> " & ex.Message, EventLogEntryType.Information, 44)
-            Console.WriteLine(vbNewLine)
-            Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-            Console.WriteLine(" lookforfiles.1116 --> " & ex.Message)
-            Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+            'Console.WriteLine(vbNewLine)
+            'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+            'Console.WriteLine(" lookforfiles.1116 --> " & ex.Message)
+            'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
         End Try
 
     End Function
@@ -1559,9 +1559,9 @@ Public Module LookForFiles
     '        Catch e_lookforfiles_965 As Exception
     '            CompacAccessUrlFound(sSendstrURI)
     '            EventLog.WriteEntry(sSource, " InsertURL from other machine lookforfiles.e_lookforfiles_965 --> " & e_lookforfiles_965.Message, EventLogEntryType.Information, 33)
-    '            Console.WriteLine(vbNewLine)
-    '            Console.WriteLine("_______*_________*____________*_____________*______________*______________")
-    '            Console.WriteLine(" e_lookforfiles_965 --> " & e_lookforfiles_965.Message)
+    '            'Console.WriteLine(vbNewLine)
+    '            'Console.WriteLine("_______*_________*____________*_____________*______________*______________")
+    '            'Console.WriteLine(" e_lookforfiles_965 --> " & e_lookforfiles_965.Message)
     '        End Try
 
     '    End Function
@@ -1652,7 +1652,7 @@ Public Module LookForFiles
                                     QueryPerformanceCounter(counter2)
                                     duration = (counter2 - counter1) / frq
 
-                                    Console.WriteLine(duration & "  -- duration.lookforfiles.InsertDNA.1379")
+                                    'Console.WriteLine(duration & "  -- duration.lookforfiles.InsertDNA.1379")
                                     InsertDNA = "true"
 
                                     Call InsertIntoSratchPadFU(myInsertQuery)
@@ -1694,7 +1694,7 @@ Public Module LookForFiles
                         End If
 
 
-                Else
+                    Else
                         'if bigger than present cycle do the update
                         If b_p_goAheadWithInsert Then
 
@@ -2354,7 +2354,7 @@ Public Module LookForFiles
             If Len(s_DatabaseName) >= 3 Then
                 s_UrlFromScratchpad = GetUrlFromScratchpad(s_DatabaseName, s_ConnString, s_TableName, s_FieldName)
             Else
-                Console.WriteLine("lookforfiles.1894 -- len s_DatabaseName is shorter than 2!")
+                'Console.WriteLine("lookforfiles.1894 -- len s_DatabaseName is shorter than 2!")
                 s_UrlFromScratchpad = "stop"
             End If
 
@@ -2364,7 +2364,7 @@ Public Module LookForFiles
 
             CheckDocumentInScratchpad = s_UrlFromScratchpad
 
-           Call CheckDocumentInScratchpadFU(s_UrlFromScratchpad)
+            Call CheckDocumentInScratchpadFU(s_UrlFromScratchpad)
 
         Catch ex As Exception
             Dim sSource As String = "AP_DENIS"
@@ -2425,7 +2425,7 @@ Public Module LookForFiles
                         If InStr(s_KeepString, "http", CompareMethod.Text) > 0 Then
                             s_KeepString = Replace(s_KeepString, "/+++++\", "'")
                             GetUrlFromScratchpad = s_KeepString
-                            Console.WriteLine("lookforfiles.GetUrlFromScratchpad.8778 --> " & sTableName & " - " & i_ID & " - " & s_KeepString)
+                            'Console.WriteLine("lookforfiles.GetUrlFromScratchpad.8778 --> " & sTableName & " - " & i_ID & " - " & s_KeepString)
                             'EventLog.WriteEntry(sSource, " lookforfiles.GetUrlFromScratchpad.1855 --> " & s_KeepString, EventLogEntryType.Information, 8777)
                             Exit While
                         Else
@@ -2477,34 +2477,34 @@ Public Module LookForFiles
 
             If s_KeepString <> "stop" Then
 
-                Form.TBScratchPad.Text = s_KeepString.ToString
-                Form.TBScratchPad.Update()
+                Form1.TBScratchPad.Text = s_KeepString.ToString
+                Form1.TBScratchPad.Update()
 
-                'Form.TBScratchPad.Text = ""
-                Form.INSERTURLFOUNDTB4.Text = ""
-                Form.TB40004.Text = ""
-                Form.UPDATEURLTB3.Text = ""
-                Form.RichTextBox1.Text = ""
-                Form.TBLenghtPage.Text = ""
-                Form.TBKeywords.Text = ""
-                Form.TBSignature.Text = ""
-                Form.FreshPageTB6.Text = ""
-                Form.TextBox40004.Text = ""
-                Form.FreshPageTB5.Text = ""
-                Form.TBScratchPad.Update()
-                Form.INSERTURLFOUNDTB4.Update()
-                Form.TB40004.Update()
-                Form.UPDATEURLTB3.Update()
-                Form.RichTextBox1.Update()
-                Form.TBLenghtPage.Update()
-                Form.TBKeywords.Update()
-                Form.TBSignature.Update()
-                Form.FreshPageTB6.Update()
-                Form.TextBox40004.Update()
-                Form.FreshPageTB5.Update()
+                'Form1.TBScratchPad.Text = ""
+                Form1.INSERTURLFOUNDTB4.Text = ""
+                Form1.TB40004.Text = ""
+                Form1.UPDATEURLTB3.Text = ""
+                Form1.RichTextBox1.Text = ""
+                Form1.TBLenghtPage.Text = ""
+                Form1.TBKeywords.Text = ""
+                Form1.TBSignature.Text = ""
+                Form1.FreshPageTB6.Text = ""
+                Form1.TextBox40004.Text = ""
+                Form1.FreshPageTB5.Text = ""
+                Form1.TBScratchPad.Update()
+                Form1.INSERTURLFOUNDTB4.Update()
+                Form1.TB40004.Update()
+                Form1.UPDATEURLTB3.Update()
+                Form1.RichTextBox1.Update()
+                Form1.TBLenghtPage.Update()
+                Form1.TBKeywords.Update()
+                Form1.TBSignature.Update()
+                Form1.FreshPageTB6.Update()
+                Form1.TextBox40004.Update()
+                Form1.FreshPageTB5.Update()
 
 
-                Form.Refresh()
+                Form1.Refresh()
 
 
 
@@ -2529,9 +2529,9 @@ Public Module LookForFiles
 
             Else
 
-                Form.TBScratchPad.Text = s_KeepString.ToString
-                Form.TBScratchPad.Update()
-                Form.Refresh()
+                Form1.TBScratchPad.Text = s_KeepString.ToString
+                Form1.TBScratchPad.Update()
+                Form1.Refresh()
 
             End If
 
@@ -2546,31 +2546,31 @@ Public Module LookForFiles
 
     Sub UpdateFrom()
 
-        Form.TBScratchPad.Text = ""
-        Form.INSERTURLFOUNDTB4.Text = ""
-        Form.TB40004.Text = ""
-        Form.UPDATEURLTB3.Text = ""
-        Form.RichTextBox1.Text = ""
-        Form.TBLenghtPage.Text = ""
-        Form.TBKeywords.Text = ""
-        Form.TBSignature.Text = ""
-        Form.FreshPageTB6.Text = ""
-        Form.TextBox40004.Text = ""
-        Form.FreshPageTB5.Text = ""
-        Form.TBScratchPad.Update()
-        Form.INSERTURLFOUNDTB4.Update()
-        Form.TB40004.Update()
-        Form.UPDATEURLTB3.Update()
-        Form.RichTextBox1.Update()
-        Form.TBLenghtPage.Update()
-        Form.TBKeywords.Update()
-        Form.TBSignature.Update()
-        Form.FreshPageTB6.Update()
-        Form.TextBox40004.Update()
-        Form.FreshPageTB5.Update()
+        Form1.TBScratchPad.Text = ""
+        Form1.INSERTURLFOUNDTB4.Text = ""
+        Form1.TB40004.Text = ""
+        Form1.UPDATEURLTB3.Text = ""
+        Form1.RichTextBox1.Text = ""
+        Form1.TBLenghtPage.Text = ""
+        Form1.TBKeywords.Text = ""
+        Form1.TBSignature.Text = ""
+        Form1.FreshPageTB6.Text = ""
+        Form1.TextBox40004.Text = ""
+        Form1.FreshPageTB5.Text = ""
+        Form1.TBScratchPad.Update()
+        Form1.INSERTURLFOUNDTB4.Update()
+        Form1.TB40004.Update()
+        Form1.UPDATEURLTB3.Update()
+        Form1.RichTextBox1.Update()
+        Form1.TBLenghtPage.Update()
+        Form1.TBKeywords.Update()
+        Form1.TBSignature.Update()
+        Form1.FreshPageTB6.Update()
+        Form1.TextBox40004.Update()
+        Form1.FreshPageTB5.Update()
 
 
-        Form.Refresh()
+        Form1.Refresh()
 
     End Sub
 
@@ -3143,77 +3143,77 @@ Public Module LookForFiles
 
         '            If sAction = "URL_sent" Then
         '                'EventLog.WriteEntry(sSource, " -- lookforfiles.s.2769 URL found sent Over by " & s_r_machineName & " (this machine)--> " & s, EventLogEntryType.Information, 12000)
-        '                Console.WriteLine(" -- lookforfiles.s.2363 URL found sent Over by " & s_r_machineName & " (this machine)--> " & s)
+        '                'Console.WriteLine(" -- lookforfiles.s.2363 URL found sent Over by " & s_r_machineName & " (this machine)--> " & s)
         '            ElseIf CStr(ID) = "QueryInsertAcknowledgement" Then
         '                'EventLog.WriteEntry(sSource, " -- lookforfiles.s.2772 Query acknowledgement found sent Over by " & s_r_machineName & " (this machine)--> " & s, EventLogEntryType.Information, 12001)
-        '                Console.WriteLine(" -- lookforfiles.s.2365 Query acknowledgement found sent Over by " & s_r_machineName & " (this machine)--> " & s)
+        '                'Console.WriteLine(" -- lookforfiles.s.2365 Query acknowledgement found sent Over by " & s_r_machineName & " (this machine)--> " & s)
         '            ElseIf CStr(ID) = "insert" Then
         '                'EventLog.WriteEntry(sSource, " -- lookforfiles.s.2775 Query insert found sent Over by " & s_r_machineName & " (this machine)--> " & s, EventLogEntryType.Information, 12002)
-        '                Console.WriteLine(" -- lookforfiles.s.2367 Query insert found sent Over by " & s_r_machineName & " (this machine)--> " & s)
+        '                'Console.WriteLine(" -- lookforfiles.s.2367 Query insert found sent Over by " & s_r_machineName & " (this machine)--> " & s)
         '            ElseIf CStr(ID) = "update" Then
         '                'EventLog.WriteEntry(sSource, " -- lookforfiles.s.2778 Query update found sent Over by " & s_r_machineName & " (this machine)--> " & s, EventLogEntryType.Information, 12003)
         '                'Console.WriteLine(" -- lookforfiles.s.2369 Query update found sent Over by " & s_r_machineName & " (this machine)--> " & s)
         '            ElseIf CStr(ID) = "delete" Then
-        '                Console.WriteLine(" -- lookforfiles.s.2369 Query delete found sent Over by " & s_r_machineName & " (this machine)--> " & s)
+        '                'Console.WriteLine(" -- lookforfiles.s.2369 Query delete found sent Over by " & s_r_machineName & " (this machine)--> " & s)
         '                'EventLog.WriteEntry(sSource, " -- lookforfiles.s.2782 Query delete found sent Over by " & s_r_machineName & " (this machine)--> " & s, EventLogEntryType.Information, 12004)
         '            ElseIf CStr(ID) = "AcknowledgeInsertDocumentFound" Then
         '                'EventLog.WriteEntry(sSource, " -- lookforfiles.s.2784 AcknowledgeInsertDocumentFoundfound sent Over by " & s_r_machineName & " (this machine)--> " & s, EventLogEntryType.Information, 12005)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(" ///-->>> lookforfiles.s.2787 AcknowledgeInsertDocumentFoundfound sent Over by " & s_r_machineName & " (this machine)--> " & s)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(" ///-->>> lookforfiles.s.2787 AcknowledgeInsertDocumentFoundfound sent Over by " & s_r_machineName & " (this machine)--> " & s)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
         '            ElseIf CStr(ID) = "newMachineConfig" Then
         '                'EventLog.WriteEntry(sSource, " -- lookforfiles.s.2791 newMachineConfig sent Over by " & s_r_machineName & " (this machine)--> " & s, EventLogEntryType.Information, 12005)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(" ///-->>> lookforfiles.s.2794 newMachineConfig sent Over by " & s_r_machineName & " (this machine)--> " & s)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(" ///-->>> lookforfiles.s.2794 newMachineConfig sent Over by " & s_r_machineName & " (this machine)--> " & s)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
         '            ElseIf CStr(ID) = "acknowNewMachinConfig" Then
         '                'EventLog.WriteEntry(sSource, " -- lookforfiles.s.2798 acknowNewMachinConfig sent Over by " & s_r_machineName & " (this machine)--> " & s, EventLogEntryType.Information, 12005)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(" ///-->>> lookforfiles.s.2801 acknowNewMachinConfig sent Over by " & s_r_machineName & " (this machine)--> " & s)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(" ///-->>> lookforfiles.s.2801 acknowNewMachinConfig sent Over by " & s_r_machineName & " (this machine)--> " & s)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
         '            ElseIf CStr(ID) = "acknowHeartbeat" Then
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(" ///-->>> lookforfiles.s.2786 acknowHeartbeat sent Over by " & s_r_machineName & " (this machine)--> " & s)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(" ///-->>> lookforfiles.s.2786 acknowHeartbeat sent Over by " & s_r_machineName & " (this machine)--> " & s)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
         '            ElseIf CStr(ID) = "NewMachineName" Then
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(" ///-->>> lookforfiles.s.2795 Machine name sent over by " & s_r_machineName & " (this machine)--> " & s)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(" ///-->>> lookforfiles.s.2795 Machine name sent over by " & s_r_machineName & " (this machine)--> " & s)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
         '            ElseIf CStr(ID) = "AcknowNewMachineName" Then
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(" ///-->>> lookforfiles.s.2799 AcknowNewMachineName sent over by " & s_r_machineName & " (this machine)--> " & s)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(" ///-->>> lookforfiles.s.2799 AcknowNewMachineName sent over by " & s_r_machineName & " (this machine)--> " & s)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
         '            ElseIf CStr(ID) = "RemoveTheSite" Then
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(" ///-->>> lookforfiles.s.2824 Sent -->" & s_r_machineName & " Remove this site --> " & s)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(" ///-->>> lookforfiles.s.2824 Sent -->" & s_r_machineName & " Remove this site --> " & s)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
         '            ElseIf CStr(ID) = "AcknowRemoveTheSite" Then
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(" ///-->>> lookforfiles.s.2830 Sent -->" & s_r_machineName & " AcknowRemoveTheSite --> " & s)
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(" ///-->>> lookforfiles.s.2830 Sent -->" & s_r_machineName & " AcknowRemoveTheSite --> " & s)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
         '            Else
-        '                Console.WriteLine(vbNewLine)
-        '                Console.WriteLine(" lookforfiles.s.2860 This machine -->" & s_r_machineName & " this DNS--> " & s)
-        '                Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(vbNewLine)
+        '                'Console.WriteLine(" lookforfiles.s.2860 This machine -->" & s_r_machineName & " this DNS--> " & s)
+        '                'Console.WriteLine(vbNewLine)
         '            End If
-        '            Console.WriteLine(s_p_authority & "  --> s_p_authority.lookforfiles.2962")
-        '            Console.WriteLine(vbNewLine)
+        '            'Console.WriteLine(s_p_authority & "  --> s_p_authority.lookforfiles.2962")
+        '            'Console.WriteLine(vbNewLine)
         '        Catch ex As Exception
         '            Dim sSource As String = "AP_DENIS"
         '            Dim sLog As String = "Applo"
@@ -3963,7 +3963,7 @@ Public Module LookForFiles
     '                    Try
     '                        Dim s_receiveHeartbeat As String = "yes"
     '                        Call InsertHeartBeatScratchPad(s_receiveHeartbeat, URIToPass)
-    '                        Console.WriteLine("Receive SendAcknowHeartBeat from authority!!!!!!! ")
+    '                        'Console.WriteLine("Receive SendAcknowHeartBeat from authority!!!!!!! ")
     '                    Catch ex As Exception
     '                        EventLog.WriteEntry(sSource, " lookforfiles.3507 --> " & ex.Message, EventLogEntryType.Information, 44)
     '                    End Try
@@ -4010,9 +4010,9 @@ Public Module LookForFiles
     '                Case "InsertDocumentFound"
     '                    Try
     '                        If s_p_authority = "yes" Then
-    '                            Console.WriteLine(vbNewLine)
-    '                            Console.WriteLine("Insert Document Found from Outside.lookforfiles.3777 --> " & URIToPass)
-    '                            Console.WriteLine(vbNewLine)
+    '                            'Console.WriteLine(vbNewLine)
+    '                            'Console.WriteLine("Insert Document Found from Outside.lookforfiles.3777 --> " & URIToPass)
+    '                            'Console.WriteLine(vbNewLine)
     '                            Dim s_array() As String = Split(URIToPass, "|||||")
 
     '                            Dim ID As String = s_array(0)
@@ -4022,8 +4022,8 @@ Public Module LookForFiles
     '                            Dim DateHour As String = s_array(2)
     '                            Dim sMachine As String = s_array(3)
     '                            sMachine = Replace(sMachine, "!!!!!", "_")
-    '                            Console.WriteLine("sMachine.lookforfiles.3777 --> " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine)
-    '                            Console.WriteLine(vbNewLine)
+    '                            'Console.WriteLine("sMachine.lookforfiles.3777 --> " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine & " " & sMachine)
+    '                            'Console.WriteLine(vbNewLine)
     '                            Dim Signature As String = s_array(4)
 
     '                            Dim sSendstrURI As String = s_array(5)
@@ -4270,19 +4270,19 @@ Public Module LookForFiles
     '            If IsNumeric(duration) Then
     '                If duration > 1 Then
     '                    'EventLog.WriteEntry(sSource, " lookforfiles_3262 wait --> 10000", EventLogEntryType.Information, 9999)
-    '                    Console.WriteLine(" lookforfiles_3262 wait --> 10000")
+    '                    'Console.WriteLine(" lookforfiles_3262 wait --> 10000")
     '                    System.Threading.Thread.Sleep(10000)
     '                ElseIf duration > 0.3 Then
     '                    'EventLog.WriteEntry(sSource, " lookforfiles_3262 wait --> 5000", EventLogEntryType.Information, 9999)
-    '                    Console.WriteLine(" lookforfiles_3262 wait --> 5000")
+    '                    'Console.WriteLine(" lookforfiles_3262 wait --> 5000")
     '                    System.Threading.Thread.Sleep(5000)
     '                ElseIf duration > 0.25 Then
     '                    'EventLog.WriteEntry(sSource, " lookforfiles_3262 wait --> 500", EventLogEntryType.Information, 9999)
-    '                    Console.WriteLine(" lookforfiles_3262 wait --> 500")
+    '                    'Console.WriteLine(" lookforfiles_3262 wait --> 500")
     '                    System.Threading.Thread.Sleep(500)
     '                End If
     '            Else
-    '                Console.WriteLine(" lookforfiles_3262 duration --> not numeric!")
+    '                'Console.WriteLine(" lookforfiles_3262 duration --> not numeric!")
     '            End If
     '        Catch e_lookforfiles_3262 As Exception
     '            EventLog.WriteEntry(sSource, " lookforfiles.e_lookforfiles_3262 --> " & e_lookforfiles_3262.Message, EventLogEntryType.Information, 44)
@@ -5028,9 +5028,9 @@ Public Module LookForFiles
 
                 QueryPerformanceCounter(counter2)
                 duration = (counter2 - counter1) / frq
-                Console.WriteLine("---------------------------------------------------------------------------")
-                Console.WriteLine(duration & "   -- the lenght is ->" & i_lenght & " --  lookforfiles.keepASCIIOnly.4299")
-                Console.WriteLine("---------------------------------------------------------------------------")
+                'Console.WriteLine("---------------------------------------------------------------------------")
+                'Console.WriteLine(duration & "   -- the lenght is ->" & i_lenght & " --  lookforfiles.keepASCIIOnly.4299")
+                'Console.WriteLine("---------------------------------------------------------------------------")
             End If
         Catch ex As Exception
             Dim sSource As String = "AP_DENIS"
@@ -5316,7 +5316,7 @@ Public Module LookForFiles
 
         If b_showDebug Then
 
-            Console.WriteLine("ShowFunction --> " & i_lineNumber & " " & s_function)
+            'Console.WriteLine("ShowFunction --> " & i_lineNumber & " " & s_function)
 
         End If
 

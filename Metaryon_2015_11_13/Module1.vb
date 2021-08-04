@@ -1128,11 +1128,11 @@ Public Module Module1
             d_p_dateHeartBeat = Now()
             Call BroadCastDNSFOUND(s_verb, s_r_machineName)
 
-            Console.WriteLine(vbNewLine)
-            Console.WriteLine("***********************************************************************************")
-            Console.WriteLine(s_verb & s_r_machineName & " -- this machine sent an update to DNSFOUND!")
-            Console.WriteLine("***********************************************************************************")
-            Console.WriteLine(vbNewLine)
+            'Console.WriteLine(vbNewLine)
+            'Console.WriteLine("***********************************************************************************")
+            'Console.WriteLine(s_verb & s_r_machineName & " -- this machine sent an update to DNSFOUND!")
+            'Console.WriteLine("***********************************************************************************")
+            'Console.WriteLine(vbNewLine)
         Catch Module1_989 As Exception
             Dim sSource As String = "AP_DENIS"
             Dim sLog As String = "Applo"
@@ -1195,7 +1195,7 @@ Public Module Module1
                     If Len(s_pageContent) > 4 Then
 
                         Dim myInsertQuery As String = "UPDATE URLFOUND SET Done= '" & (s_so) & "',URL_PAGE = '" & s_pageContent & "', Machine = '" & CStr(Now()) & "' WHERE IDCounter =" & i_idCounter & ""
-                        Console.WriteLine("Module1.myInsertQuery.1033  -- " & myInsertQuery)
+                        'Console.WriteLine("Module1.myInsertQuery.1033  -- " & myInsertQuery)
                         Dim myCommand As New OleDbCommand(myInsertQuery)
                         myCommand.Connection = myConnection1
                         myConnection1.Open()
@@ -1233,7 +1233,7 @@ Public Module Module1
             Dim sSource As String = "AP_DENIS"
             Dim sLog As String = "Applo"
             EventLog.WriteEntry(sSource, " lookforfiles.Module1_1020 --> " & Module1_1020.Message, EventLogEntryType.Information, 44)
-            Console.WriteLine(" lookforfiles.Module1_1020 ******************--> " & Module1_1020.Message)
+            'Console.WriteLine(" lookforfiles.Module1_1020 ******************--> " & Module1_1020.Message)
         End Try
 
     End Sub
@@ -1321,7 +1321,7 @@ Public Module Module1
 
     Public Function f_TakeRacine_DNS_updated(ByVal sDNSName As String, ByVal sFoundRacine As String, ByVal Verb As String) As Object
 
-       
+
 
         Dim s_Verb As String = Verb
         Dim myConnString As String
@@ -1376,7 +1376,7 @@ Public Module Module1
                     f_TakeRacine_DNS_updated = "stop"
                 End If
 
-                 Call f_TakeRacine_DNS_updatedFU(f_TakeRacine_DNS_updated)
+                Call f_TakeRacine_DNS_updatedFU(f_TakeRacine_DNS_updated)
 
                 Exit While
             End While
@@ -1390,7 +1390,7 @@ Public Module Module1
             If b_dnsFoundEmpty Then
 
                 i_p_countTimeAfterDNSFOUNDEmpty = i_p_countTimeAfterDNSFOUNDEmpty + 1
-                Console.WriteLine(i_p_countTimeAfterDNSFOUNDEmpty & "  -- lookforfiles.i_p_countTimeAfterDNSFOUNDEmpty.257")
+                'Console.WriteLine(i_p_countTimeAfterDNSFOUNDEmpty & "  -- lookforfiles.i_p_countTimeAfterDNSFOUNDEmpty.257")
 
                 If i_p_countTimeAfterDNSFOUNDEmpty >= 1 Then
                     i_p_countTimeAfterDNSFOUNDEmpty = 0
